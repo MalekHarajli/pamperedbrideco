@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#eceae5" />
+  <title>The Pampered Bride — Luxury Day-of Bridal Attendance</title>
+  <meta name="description" content="The Pampered Bride — luxury day-of bridal attendance. A planner makes the wedding happen. We make certain the bride enjoys it." />
+  <meta property="og:title" content="The Pampered Bride" />
+  <meta property="og:description" content="Luxury day-of bridal attendance — the bride's whole day, scrubbed by scroll." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Elegant cream loading state until the film frames are ready -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <p class="loader__issue">Vol. I &nbsp;·&nbsp; The Bridal Issue</p>
+      <h1 class="loader__mast"><span>The Pampered</span><span class="loader__mast--em">Bride</span></h1>
+      <div class="loader__bar"><span id="loaderFill"></span></div>
+      <p class="loader__hint">Loading the film</p>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="rail" aria-hidden="true"><span class="rail__fill" id="railFill"></span></div>
+
+  <header class="topbar">
+    <span class="topbar__name">The Pampered Bride</span>
+    <span class="topbar__rule" aria-hidden="true"></span>
+    <a class="topbar__ig" href="https://instagram.com/pamperedbrideco" target="_blank" rel="noopener" aria-label="Instagram @pamperedbrideco">
+      <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor"/></svg>
+      <span>@pamperedbrideco</span>
+    </a>
+  </header>
+
+  <!-- The film is the journey: fixed full-screen canvas + scrim + pinned text -->
+  <div class="stage" id="stage">
+    <canvas class="film" id="film"></canvas>
+    <div class="scrim" id="scrim"></div>
+
+    <div class="chapters" id="chapters">
+
+      <!-- 01 · COVER -->
+      <section class="chapter chapter--cover" data-range="0,0.14" id="ch-cover">
+        <p class="issue">Vol. I &nbsp;·&nbsp; The Bridal Issue &nbsp;·&nbsp; @pamperedbrideco</p>
+        <h2 class="masthead"><span class="masthead__line">The Pampered</span><span class="masthead__line masthead__line--em">Bride</span></h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="cover__sub">Luxury Day-of Bridal Attendance</p>
+        <span class="folio">— 01 —</span>
+      </section>
+
+      <!-- 02 · THE PHILOSOPHY -->
+      <section class="chapter chapter--text" data-range="0.18,0.36" id="ch-philosophy">
+        <p class="kicker">The Philosophy</p>
+        <p class="lede dropcap">Every bride deserves to be wholly cared for. Not the vendors. Not the timeline. <em>Only her.</em></p>
+        <span class="folio">— 02 —</span>
+      </section>
+
+      <!-- 03 · THE DIFFERENCE -->
+      <section class="chapter chapter--text" data-range="0.40,0.58" id="ch-difference">
+        <p class="kicker">The Difference</p>
+        <blockquote class="pullquote">A planner makes the wedding happen. <em>We make certain the bride enjoys it.</em></blockquote>
+        <span class="folio">— 03 —</span>
+      </section>
+
+      <!-- 04 · SERVICES -->
+      <section class="chapter chapter--text" data-range="0.60,0.78" id="ch-services">
+        <p class="kicker">Services</p>
+        <ul class="svc">
+          <li><span class="svc__n">01</span><span class="svc__t">Dress &amp; Bustle</span></li>
+          <li><span class="svc__n">02</span><span class="svc__t">Emergency Kit &amp; Touch-ups</span></li>
+          <li><span class="svc__n">03</span><span class="svc__t">Hydration, Meals &amp; Calm</span></li>
+          <li><span class="svc__n">04</span><span class="svc__t">A Devoted Presence</span></li>
+        </ul>
+        <p class="svc__foot">First light to the last dance.</p>
+        <span class="folio">— 04 —</span>
+      </section>
+
+      <!-- 05 · CLOSING SPREAD (fades up & stays over the held final frame) -->
+      <section class="chapter chapter--closing" data-range="0.80,1" data-stay="1" id="ch-closing">
+        <div class="closing__inner">
+          <p class="kicker box" style="--i:0">The Collection</p>
+
+          <div class="packages">
+            <article class="pkg box" style="--i:1">
+              <p class="pkg__name">Hourly Bridal Attendance</p>
+              <p class="pkg__tag">Four-hour minimum</p>
+              <div class="pkg__rule" aria-hidden="true"></div>
+              <ul class="pkg__list">
+                <li>Choose the hours you need</li>
+                <li>Full service in every hour</li>
+                <li>Emergency kit, repairs &amp; touch-ups</li>
+                <li>Built around your timeline</li>
+              </ul>
+            </article>
+
+            <article class="pkg box" style="--i:2">
+              <p class="pkg__name">Half-Day Bridal Support</p>
+              <p class="pkg__tag">Morning through photographs</p>
+              <div class="pkg__rule" aria-hidden="true"></div>
+              <ul class="pkg__list">
+                <li>Getting-ready &amp; morning attendance</li>
+                <li>Dress, veil &amp; bustle assistance</li>
+                <li>Touch-ups through every photograph</li>
+                <li>Emergency kit on hand throughout</li>
+              </ul>
+            </article>
+
+            <article class="pkg pkg--signature box" style="--i:3">
+              <span class="pkg__ribbon">Signature</span>
+              <p class="pkg__name">All-Day Bridal Support</p>
+              <p class="pkg__tag">First light to last dance</p>
+              <div class="pkg__rule" aria-hidden="true"></div>
+              <ul class="pkg__list">
+                <li>Morning through the last dance</li>
+                <li>Dressing, bustling &amp; wardrobe changes</li>
+                <li>Snacks, hydration &amp; touch-ups</li>
+                <li>A steady, calming presence all day</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="inquire box" style="--i:4">
+            <p class="kicker">Inquire</p>
+            <form class="capture" id="captureForm" novalidate>
+              <label class="sr-only" for="email">Email address</label>
+              <input class="capture__input" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email" />
+              <button class="btn capture__btn" type="submit">Inquire</button>
+              <p class="capture__note" id="captureNote" role="status" aria-live="polite"></p>
+            </form>
+            <a class="ig" href="https://instagram.com/pamperedbrideco" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="17.4" cy="6.6" r="1.15" fill="currentColor"/></svg>
+              <span>@pamperedbrideco</span>
+            </a>
+            <p class="signoff">The Pampered Bride</p>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /chapters -->
+
+    <a class="scroll-cue" id="scrollCue" aria-hidden="true"><span class="scroll-cue__word">Scroll</span><span class="scroll-cue__line"></span></a>
+  </div><!-- /stage -->
+
+  <!-- Instagram logo link — fades into the corner once you reach the bottom -->
+  <a class="ig-corner" id="igCorner" href="https://instagram.com/pamperedbrideco" target="_blank" rel="noopener" aria-label="Follow The Pampered Bride on Instagram">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"/></svg>
+  </a>
+
+  <!-- Tall spacer creates the scroll range that drives the film -->
+  <div class="spacer" id="spacer" aria-hidden="true"></div>
+
+  <script src="assets.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
