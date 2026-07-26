@@ -179,14 +179,34 @@
     if (!form) return;
     var input = document.getElementById('email');
     var note = document.getElementById('captureNote');
+    var btn = form.querySelector('button[type="submit"]');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var val = (input.value || '').trim();
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
         note.style.color = 'var(--greige)'; note.textContent = 'Kindly enter a valid email address.'; input.focus(); return;
       }
-      note.style.color = 'var(--gold)'; note.textContent = 'Thank you — we will be in touch, beautifully soon.';
-      input.value = ''; input.blur();
+      note.style.color = 'var(--greige)'; note.textContent = 'Sending…';
+      if (btn) btn.disabled = true;
+      // Relay the inquiry to bookings@thepamperedbrideco.com via Web3Forms.
+      fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      }).then(function (r) {
+        return r.json().then(function (data) { return { ok: r.ok, data: data }; });
+      }).then(function (res) {
+        if (res.ok && res.data && res.data.success) {
+          note.style.color = 'var(--gold)'; note.textContent = 'Thank you — we will be in touch, beautifully soon.';
+          form.reset(); input.blur();
+        } else {
+          note.style.color = 'var(--greige)';
+          note.textContent = 'Something went wrong — please email bookings@thepamperedbrideco.com.';
+        }
+      }).catch(function () {
+        note.style.color = 'var(--greige)';
+        note.textContent = 'Something went wrong — please email bookings@thepamperedbrideco.com.';
+      }).then(function () { if (btn) btn.disabled = false; });
     });
   }
 
