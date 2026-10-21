@@ -182,22 +182,27 @@
     if (img) cover(img, 1);
   }
 
-  /* ----------------------------------------------------------- email ------- */
+  /* ----------------------------------------------------------- inquiry ----- */
   function wireForm() {
     var form = document.getElementById('captureForm');
     if (!form) return;
+    var nameEl = document.getElementById('name');
+    var phoneEl = document.getElementById('phone');
     var input = document.getElementById('email');
     var note = document.getElementById('captureNote');
     var btn = form.querySelector('button[type="submit"]');
+    function warn(msg, el) { note.style.color = 'var(--greige)'; note.textContent = msg; if (el) el.focus(); }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var val = (input.value || '').trim();
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-        note.style.color = 'var(--greige)'; note.textContent = 'Kindly enter a valid email address.'; input.focus(); return;
-      }
+      var nameV  = nameEl  ? (nameEl.value  || '').trim() : '';
+      var phoneV = phoneEl ? (phoneEl.value || '').trim() : '';
+      var val    = (input.value || '').trim();
+      if (nameEl && !nameV) { warn('Kindly enter your name.', nameEl); return; }
+      if (phoneEl && phoneV.replace(/\D/g, '').length < 7) { warn('Kindly enter a valid phone number.', phoneEl); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) { warn('Kindly enter a valid email address.', input); return; }
       note.style.color = 'var(--greige)'; note.textContent = 'Sending…';
       if (btn) btn.disabled = true;
-      // Relay the inquiry to bookings@thepamperedbrideco.com via Web3Forms.
+      // Relay the inquiry (name, phone, email) to bookings@thepamperedbrideco.com via Web3Forms.
       fetch(form.action, {
         method: 'POST',
         headers: { 'Accept': 'application/json' },

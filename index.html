@@ -134,6 +134,10 @@
               <input type="hidden" name="subject" value="New inquiry — The Pampered Bride" />
               <input type="hidden" name="from_name" value="The Pampered Bride website" />
               <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <label class="sr-only" for="name">Name</label>
+              <input class="capture__input" id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+              <label class="sr-only" for="phone">Phone number</label>
+              <input class="capture__input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Your phone number" required />
               <label class="sr-only" for="email">Email address</label>
               <input class="capture__input" id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email" required />
               <button class="btn capture__btn" type="submit">Inquire</button>
